@@ -1,5 +1,5 @@
 <p align="center">
-<img src="app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" align="center"/>
+<img src="app/src/main/res/mipmap-xxhdpi/ic_launcher.png" align="center"/>
 <div align="center"> 
 
 ## Calculator Plus
@@ -44,3 +44,9 @@ The android app lets you:
 18. Luminous flux
 19. Luminous
 20. Force
+
+# Screenshots
+<img src="screenshots/normal_dark.jpg" width="500"/>
+<img src="screenshots/drawer_dark.jpeg" width="500"/>
+<img src="screenshots/energy_dark.jpeg" width="500"/>
+<img src="screenshots/energy_2_dark.jpeg" width="500"/>
