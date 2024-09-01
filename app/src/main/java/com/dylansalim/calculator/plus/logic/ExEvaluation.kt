@@ -3,9 +3,9 @@ package com.dylansalim.calculator.plus.logic
 import java.util.*
 
 class ExEvaluation {
-    fun evaluate(expression: String): Long {
+    fun evaluate(expression: String): Double {
         val tokens = expression.toCharArray()
-        val values = Stack<Long>()
+        val values = Stack<Double>()
         val ops = Stack<Char>()
         var i = 0
         while (i < tokens.size) {
@@ -13,7 +13,7 @@ class ExEvaluation {
                 val sbuf = StringBuffer()
                 while (i < tokens.size && tokens[i] >= '0' && tokens[i] <= '9')
                     sbuf.append(tokens[i++])
-                values.push(sbuf.toString().toLong())
+                values.push(sbuf.toString().toDouble())
                 i--
             } else if (tokens[i] == '(') ops.push(tokens[i]) else if (tokens[i] == ')') {
                 while (ops.peek() != '(') values.push(
@@ -59,19 +59,19 @@ class ExEvaluation {
     }
     private fun applyOp(
         op: Char,
-        b: Long, a: Long
-    ): Long {
+        b: Double, a: Double
+    ): Double {
         when (op) {
             '+' -> return a + b
             '-' -> return a - b
             '*' -> return a * b
             '/' -> {
-                if (b == 0L) throw UnsupportedOperationException(
+                if (b == 0.0) throw UnsupportedOperationException(
                     "Cannot divide by zero"
                 )
                 return a / b
             }
         }
-        return 0
+        return 0.0
     }
 }

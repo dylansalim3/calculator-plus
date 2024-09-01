@@ -19,6 +19,10 @@ class CalculatorViewModel(application: Application) : AndroidViewModel(applicati
     var result by mutableStateOf("")
         private set
 
+    fun formatDouble(value: Double): String {
+        return String.format("%.8f", value).trimEnd('0').trimEnd('.')
+    }
+
     fun updateInput(key: String) {
         if (key == "=") {
             input = result
@@ -41,7 +45,7 @@ class CalculatorViewModel(application: Application) : AndroidViewModel(applicati
         viewModelScope.launch {
             try {
                 withContext(Dispatchers.IO) {
-                    result = calculator.evaluate(input).toString()
+                    result = formatDouble(calculator.evaluate(input))
                 }
             } catch (e: NumberFormatException) {
                 Toast.makeText(getApplication(), "Number limit exceeded", Toast.LENGTH_SHORT).show()
